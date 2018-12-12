@@ -1,0 +1,55 @@
+{
+  "name": "super-backend-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint **/*.js --fix",
+    "test": "jest",
+    "prebuild": "npm run lint && npm test",
+    "build": "webpack",
+    "build:dev": "npm run build -- --mode=development",
+    "build:prod": "npm run build -- --mode=production",
+    "local": "node build/bundle.js",
+    "dev": "npm run build:dev && npm run local"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm test",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "circular-dependency-plugin": "^5.0.2",
+    "eslint": "^5.10.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.2.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "terser-webpack-plugin": "^1.1.0",
+    "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "fastify": "^1.13.1",
+    "fastify-helmet": "^3.0.0"
+  }
+}
